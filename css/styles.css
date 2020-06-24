@@ -1,0 +1,106 @@
+
+
+hr{
+  width: 70%;
+  border: 0;
+  border-bottom: dotted 1rem #faeee7;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+  background-color: #faeee7;
+  font-family: 'Libre Baskerville', serif;
+}
+.navbar-brand{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* MAIN - SECTIONS */
+.side-main{
+  background-color: #faeee7;
+  border: solid 0.3rem #0a97b0;
+  background-image: url("../images/pearls5.jpg");
+}
+.middle-main{
+  padding: 0;
+}
+
+/* WELCOME SECTION */
+
+#tempting-section{
+  background-color: #0a97b0;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+
+/* CAROUSEL */
+.photos-carousel{
+  text-align: center;
+  margin: 0 auto;
+}
+.beach-picture{
+  max-height: 40rem;
+}
+.carousel-control-prev{
+  padding-right: 2.5rem;
+}
+.carousel-control-next{
+  padding-left: 2.5rem;
+}
+
+
+/* MESSAGES TEXT */
+.temping-message{
+  font-family: 'Marck Script', cursive;
+  font-size: 2.5rem;
+  color: #faeee7;
+  padding: 3rem 5rem;
+}
+.simple-official-message{
+  font-family: 'Mukta', sans-serif;
+  font-weight: bolder;
+  padding: 6rem 7rem 4rem 7rem;
+
+  letter-spacing: 0.2rem;
+  word-spacing: 0.5rem;
+  color: #faeee7;
+}
+
+/* BOTTOM MAIN */
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #9acc85;
+	background-color:#74ad5a;
+	border:1px solid #3b6e22;
+	display:inline-block;
+	cursor:pointer;
+	color:#faeee7;
+  font-family: 'Mukta', sans-serif;
+	font-size:1.3rem;
+	font-weight:bold;
+	padding:1rem 7rem;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#68a54b;
+  /* color: #0a97b0; */
+  text-decoration:none;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.copyrights{
+  color:#faeee7;
+  padding-top: 2rem;
+}
+
+
+/* MEDIA QUERRIES */
+@media (max-width: 1000px){
+
+}
