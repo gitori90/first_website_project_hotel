@@ -8,6 +8,9 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+const grandSuite = 95;
+const mediumSuite = 75;
+const smallSuite = 60;
 
 
 
@@ -35,12 +38,6 @@ app.get("/", function(req, res){
 
   res.render("index");
 });
-
-app.get("/pricing", function(req, res){
-
-  res.render("pricing");
-});
-
 app.post("/", function(req, res){
 
   // let item = req.body.newItem;
@@ -60,6 +57,35 @@ app.post("/", function(req, res){
   // items.push(item);
   // res.redirect("/");
 });
+
+
+
+
+app.get("/pricing", function(req, res){
+
+  res.render("pricing", {grandPrice: grandSuite, mediumPrice: mediumSuite, smallPrice: smallSuite});
+});
+app.post("/pricing", function(req, res){
+  let suiteType = req.body.reserveButton;
+  res.redirect("/checkout");
+});
+
+
+
+
+
+
+app.get("/checkout", function(req, res){
+
+  res.render("checkout");
+});
+app.post("/checkout", function(req, res){
+
+});
+
+
+
+
 
 // app.get("/work", function(req, res){
 //   res.render("list", {listTitle: "work list", newItems: workItems});
