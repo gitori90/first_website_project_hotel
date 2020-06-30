@@ -1,6 +1,51 @@
 <%- include("header") -%>
+<br>
+<div class="reservation-top-message">
+<h1>Choose when you're going to stay</h1>
+</div>
 
-<%- include("calendar") -%>
+
+<div class="container-fluid reservation-info-columns">
+  <div class="row">
+    <div class="col-sm-2">
+      <p>
+        text
+        </p>
+      </div>
+
+
+
+  <div class="col-sm-8">
+    <hr class="hr-dark">
+    <br>
+  <ul class="card-review">
+    <li style="float: left;">
+      image of selected room
+      <!-- <img src="" alt=""> -->
+    </li>
+    <li style="float: left;">
+      <ul>
+        <li>room info</li>
+        <li>more room info</li>
+      </ul>
+    </li>
+
+  </ul>
+  <h2>available days for this room:</h2>
+  <%- include("calendar") -%>
+  </div>
+
+
+
+  <div class="col-sm-2">
+    <p>
+      text
+      </p>
+    </div>
+</div>
+
+</div>
+
 
 
 

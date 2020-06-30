@@ -11,16 +11,17 @@
   font-size: 2rem;
   border: solid 5px #f0daa4;
   margin: auto;
-  width: 80%;
+  width: 100%;
   /* border-bottom-left-radius: 15%;
   border-bottom-right-radius: 15%; */
 }
 .calendar-wrapper{
   text-align: center;
   color: #202040;
+  padding: 0!important;
 }
 .calender-top{
-  width: 80%;
+  width: 100%;
   margin: auto;
   border: solid 5px #f0daa4;
   border-bottom: 0;
@@ -59,11 +60,11 @@
   background-color: #eaac9d;
 }
 .calendarHeader{
-  width: 80%
+  width: 100%
 }
 
 .calendar-submit-btn{
-  width: 80%;
+  width: 100%;
   padding: 0.5rem 0;
   font-size: 2rem;
   background-color: #32e0c4;
@@ -93,4 +94,16 @@
 .day-chosen, .calendar-submit-btn:hover{
   background-color: #649d66!important;
   color: white;
+}
+
+.card-review{
+  display: inline-block;
+  list-style-type: none;
+  border: solid 2px black;
+}
+.reservation-info-columns{
+  padding-top: 2rem;
+}
+.reservation-top-message{
+  text-align: center;
 }

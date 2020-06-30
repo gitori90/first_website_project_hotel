@@ -68,7 +68,7 @@ app.get("/pricing", function(req, res){
 });
 app.post("/pricing", function(req, res){
   let suiteType = req.body.reserveButton;
-  res.redirect("/checkout");
+  res.redirect("/reservationPage");
 });
 
 
@@ -92,6 +92,7 @@ app.get("/reservationPage", function(req, res){
 });
 app.post("/reservationPage", function(req, res){
 
+  res.redirect("/checkout")
 });
 
 
