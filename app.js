@@ -8,6 +8,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+
 const grandSuite = 95;
 const mediumSuite = 75;
 const smallSuite = 60;
@@ -84,7 +85,14 @@ app.post("/checkout", function(req, res){
 });
 
 
+app.get("/reservationPage", function(req, res){
+  // const buildCalendar = require(__dirname + "/views/calendar.ejs");
 
+  res.render("reservationPage");
+});
+app.post("/reservationPage", function(req, res){
+
+});
 
 
 // app.get("/work", function(req, res){

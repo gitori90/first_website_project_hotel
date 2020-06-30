@@ -1,44 +1,36 @@
-<div mbsc-form>
-    <div class="mbsc-align-center">
-        <div class="mbsc-note mbsc-note-primary">The range can be used inside a mobiscroll form or on any input.</div>
-    </div>
-    <div class="mbsc-form-group">
-        <div class="mbsc-form-group-title">Two inputs inside Mobiscroll Form</div>
-        <label>
-            From
-            <input mbsc-input id="start" placeholder="Please Select ..." readonly />
-        </label>
-        <label>
-            Until
-            <input mbsc-input id="end" placeholder="Please Select ..." readonly />
-        </label>
-    </div>
-    <div class="mbsc-form-group">
-        <div class="mbsc-form-group-title">Date scroller</div>
-        <label>
-            From
-            <input mbsc-input id="startDate" placeholder="Please Select ..." readonly />
-        </label>
-        <label>
-            Until
-            <input mbsc-input id="endDate" placeholder="Please Select ..." readonly />
-        </label>
-    </div>
-    <div id="demo"></div>
-    <div id="date"></div>
-    <div class="mbsc-form-group mbsc-padding">
-        <p class="mbsc-thin">Use it on any input or non-mobiscroll form.</p>
-    </div>
-</div>
-<div class="demo-container">
-    <label for="demo-non-form">Range</label>
-    <input id="demo-non-form" class="demo-non-form" placeholder="Please Select..." />
-    <label for="demo-external">Show on button click only</label>
-    <div class="external-container">
-        <input id="demo-external" class="demo-non-form" />
-        <button id="show" class="external-button demo-button">Show</button>
-    </div>
-</div>
+
+<div class="container-fluid calendar-wrapper">
+<form class="" action="/checkout" method="post">
 
 
-<script type="text/javascript" src="calendar.js"></script>
+<div class="calender-top">
+  <ul class="calendar-top-list">
+
+  <li class="top-item"><i class="fas fa-chevron-left top-left-arrow"></i></li>
+
+  <li class="month-label top-item"></li>
+
+  <li class="top-item"><i class="fas fa-chevron-right top-right-arrow"></i></li>
+
+  </ul>
+</div>
+<table class="calendar">
+  <!-- <caption class="month-label"></caption> -->
+  <tr class="header">
+    <th class="calendarHeader">Sun</th>
+    <th class="calendarHeader">Mon</th>
+    <th class="calendarHeader">Tue</th>
+    <th class="calendarHeader">Wed</th>
+    <th class="calendarHeader">Thu</th>
+    <th class="calendarHeader">Fri</th>
+    <th class="calendarHeader">Sat</th>
+  </tr>
+
+</table>
+<button type="submit" class="calendar-submit-btn">Confirm</button>
+</form>
+</div>
+
+<script type="text/javascript">
+<%- include("calendar.js") -%>
+</script>

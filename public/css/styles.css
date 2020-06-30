@@ -1,16 +1,17 @@
 body{
-  background-color: #faeee7;
+  background-color: #faeee7!important;
 }
 
 hr{
   width: 70%;
-  border: 0;
 }
 .hr-dark{
   border-bottom: dotted 1rem #0a97b0;
+  border-top: 0;
 }
 .hr-light{
   border-bottom: dotted 1rem #faeee7;
+  border-top: 0;
 }
 
 
@@ -37,7 +38,7 @@ nav{
   background-image: url("../images/pearls5.jpg");
 }
 .middle-main{
-  padding: 0;
+  padding: 0!important;
 }
 
 /* WELCOME SECTION */
@@ -68,7 +69,7 @@ nav{
 /* MESSAGES TEXT */
 .temping-message{
   font-family: 'Marck Script', cursive;
-  font-size: 2.5rem;
+  font-size: 2.5rem!important;
   color: #faeee7;
   padding: 3rem 5rem;
 }

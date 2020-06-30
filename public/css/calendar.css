@@ -1,26 +1,96 @@
-.demo-non-form {
-    color: initial;
-    width: 100%;
-    padding: 10px;
-    margin: 6px 0 12px 0;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    font-family: arial, verdana, sans-serif;
-    font-size: 14px;
-    box-sizing: border-box;
-    -webkit-appearance: none;
+
+.month-label{
+  text-align: center;
+  margin: auto;
+  font-size: 4rem;
+}
+.calendar{
+  table-layout: fixed;
+  background-color: #888888;
+  text-align: center;
+  font-size: 2rem;
+  border: solid 5px #f0daa4;
+  margin: auto;
+  width: 80%;
+  /* border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%; */
+}
+.calendar-wrapper{
+  text-align: center;
+  color: #202040;
+}
+.calender-top{
+  width: 80%;
+  margin: auto;
+  border: solid 5px #f0daa4;
+  border-bottom: 0;
+  background-color: #f4f4f4;
 }
 
-.demo-container {
-    padding: 0 1em;
+.calendar-top-list{
+  text-align: center;
+  /* display: inline-block; */
+  list-style-type: none;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin: 0;
+}
+.top-item{
+  display: inline;
+}
+.top-left-arrow{
+  margin-top: 2.5rem;
+  float: left;
+}
+.top-right-arrow{
+  margin-top: 2.5rem;
+  float: right;
+}
+.top-left-arrow:hover, .top-right-arrow:hover {
+  cursor: pointer;
 }
 
-.external-container {
-    display: flex;
+.prevMonth, .nextMonth{
+  opacity: 0.6;
 }
 
-.external-container button.external-button {
-    font-weight: 400;
-    padding: 10px;
-    margin: 6px 0 12px 16px;
+
+.header{
+  background-color: #eaac9d;
+}
+.calendarHeader{
+  width: 80%
+}
+
+.calendar-submit-btn{
+  width: 80%;
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  background-color: #32e0c4;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+}
+/* .calendar-submit-btn:hover{
+  opacity: 1;
+} */
+
+.week0, .week2, .week4{
+  background-color: #f0f0f0;
+}
+.week1, .week3, .week5{
+  background-color: #ffffff;
+}
+
+.day{
+  color: #30475e;
+  border-radius: 1rem;
+}
+.day-available:hover{
+  background-color: #32e0c4;
+  cursor: pointer;
+}
+.day-chosen, .calendar-submit-btn:hover{
+  background-color: #649d66!important;
+  color: white;
 }
