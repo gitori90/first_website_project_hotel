@@ -72,9 +72,9 @@
   border: none;
   border-radius: 0.5rem;
 }
-/* .calendar-submit-btn:hover{
-  opacity: 1;
-} */
+.datesInput{
+  visibility: hidden;
+}
 
 .week0, .week2, .week4{
   background-color: #f0f0f0;
@@ -94,6 +94,10 @@
 .day-chosen, .calendar-submit-btn:hover{
   background-color: #649d66!important;
   color: white;
+}
+.day-full{
+  background-color: #30475e!important;
+  cursor: not-allowed!important;
 }
 
 .card-review{

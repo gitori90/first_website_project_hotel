@@ -19,6 +19,7 @@
     <hr class="hr-dark">
     <br>
   <ul class="card-review">
+    <li class="chosenSuite"><%= chosenSuite %></li>
     <li style="float: left;">
       image of selected room
       <!-- <img src="" alt=""> -->
@@ -46,7 +47,15 @@
 
 </div>
 
+<script type="text/javascript">
 
+  var chosenDays = <%= chosenDays %>;
+  for (let i = 0; i < chosenDays.length; i++)
+  {
+    $("#" + chosenDays[i]).addClass("day-full");
+  }
+
+</script>
 
 
 <%- include("footer") -%>

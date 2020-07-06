@@ -1,6 +1,6 @@
 
 <div class="container-fluid calendar-wrapper">
-<form class="" action="" method="post">
+
 
 
 <div class="calender-top">
@@ -27,9 +27,22 @@
   </tr>
 
 </table>
-<button type="submit" class="calendar-submit-btn">Confirm</button>
+<form class="" action="" method="post">
+<input class="datesInput" type="text" name="daysChosen" value="">
+<button onclick="insertIDs()" type="submit" class="calendar-submit-btn">Confirm</button>
 </form>
 </div>
+
+<script type="text/javascript">
+  function insertIDs()
+  {
+    var idArray = [];
+    $('.day-chosen').each(function () {
+    idArray.push(this.id);
+    });
+    $(".datesInput").val(idArray);
+  }
+</script>
 
 <script type="text/javascript">
 <%- include("calendar.js") -%>

@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
+const fs = require('fs')
+// const fullDaysData = require(__dirname + "/public/data/fullDays.txt");
 // const date = require(__dirname + "/views/date.js");
 const app = express();
 app.set('view engine', 'ejs');
@@ -12,6 +14,31 @@ app.use(bodyParser.urlencoded({extended: true}));
 const grandSuite = 95;
 const mediumSuite = 75;
 const smallSuite = 60;
+var chosenSuite = 'grand';
+var chosenDays = [];
+
+
+
+// WRITING JSON TO FILE, LOADING THAT FILE'S TEXT AND PARSING THE JSON BACK:
+// NOTE!!: THE OUTER QUOTES IN JSON ARE ALWAYS '' AND INNER QUOTES ARE ALWAYS ""
+/*
+const testtext = '{"grand": ["2020-06-15", "2021-07-25"]}'
+
+fs.writeFile(__dirname + "/public/data/fullDays.txt", testtext, (err) => {
+    // In case of a error throw err.
+    if (err) throw err;
+});
+
+fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) => {
+  var test1 = JSON.parse(data);
+  dates = test1.grand;
+  console.log(dates);
+  var day = new Date(dates[0]);
+  console.log(dates[0]);
+  console.log(day);
+});
+*/
+
 
 
 
@@ -67,7 +94,8 @@ app.get("/pricing", function(req, res){
   res.render("pricing", {grandPrice: grandSuite, mediumPrice: mediumSuite, smallPrice: smallSuite});
 });
 app.post("/pricing", function(req, res){
-  let suiteType = req.body.reserveButton;
+  chosenSuite = req.body.reserveButton;
+
   res.redirect("/reservationPage");
 });
 
@@ -86,11 +114,28 @@ app.post("/checkout", function(req, res){
 
 
 app.get("/reservationPage", function(req, res){
-  // const buildCalendar = require(__dirname + "/views/calendar.ejs");
+  fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) =>
+  {
+    chosenDaysAllSuites = JSON.parse(data);
+    chosenDays = chosenDaysAllSuites.chosenSuite
 
-  res.render("reservationPage");
+
+  });
+
+  res.render("reservationPage", {chosenSuite: chosenSuite, chosenDays: chosenDays});
 });
 app.post("/reservationPage", function(req, res){
+  console.log("reservationPage Post:");
+
+   daysString = req.body.daysChosen;
+   var chosenDays = daysString.split(",");
+   console.log(chosenDays);
+  // const testtext = '{"grand": ["2020-06-15", "2021-07-25"]}'
+  //
+  // fs.writeFile(__dirname + "/public/data/fullDays.txt", testtext, (err) => {
+  //     // In case of a error throw err.
+  //     if (err) throw err;
+  // });
 
   res.redirect("/checkout")
 });

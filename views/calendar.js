@@ -28,6 +28,12 @@ function formatDateDayMonth(num)
   return num.toString();
 }
 
+function idDateFormat(dayStr, monthStr, yearNumber)
+{
+  return yearNumber.toString() + "-" + monthStr + "-" + dayStr;
+  // return dayStr + monthStr + yearNumber.toString()
+}
+
 function removeElementFromArray(element, array)
 {
   let matchIndex = array.indexOf(element);
@@ -94,6 +100,7 @@ function monthLastDay()
 }
 
 
+
 function buildFirstWeek()
 {
   let tempDate = new Date();
@@ -112,8 +119,10 @@ function buildFirstWeek()
     let dayStr = formatDateDayMonth(lastDays)
     let monthStr = formatDateDayMonth(monthNumber + 1);
 
+    date = idDateFormat(dayStr, monthStr, yearNumber);
+
     $(".week0").append("<td class='day prevMonth' id="
-    + dayStr + monthStr + yearNumber.toString() + ">" + lastDays + "</td>");
+    + date + ">" + lastDays + "</td>");
     lastDays++;
   }
 }
@@ -131,8 +140,10 @@ function finishLastWeek(numberDaysLeft, weekNumber)
     let day = formatDateDayMonth(i + 1);
     let month = formatDateDayMonth(monthNumber + 1);
 
+    date = idDateFormat(day, month, yearNumber);
+
     $(".week" + weekNumber).append("<td class='day nextMonth' id="
-    + day + month + yearNumber.toString() + ">" + (i + 1) + "</td>");
+    + date + ">" + (i + 1) + "</td>");
   }
 }
 
@@ -163,8 +174,12 @@ function buildMonth(monthNumber)
 
     for(let i = 0 ; i < 7 ; i++)
     {
+      day = formatDateDayMonth(day);
+      month = formatDateDayMonth(monthNumber + 1)
+
+      date = idDateFormat(day, month, selectedYear);
       $(".week" +  j).append("<td class='day day-available' "
-      + "id=" + formatDateDayMonth(day) + formatDateDayMonth(monthNumber + 1) + selectedYear.toString() + "><b>" + day + "</b></td>");
+      + "id=" + date + "><b>" + day + "</b></td>");
       day++;
 
       if (day > lastMonthDay)
