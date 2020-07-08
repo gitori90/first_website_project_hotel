@@ -22,6 +22,22 @@
         </li>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
+
+            <!-- SOMEHOW ADD THE DATES HERE -->
+            <ul id="confirmedInsertDays">
+              <%= confirmedDaysString %>
+            </ul>
+            <script type="text/javascript">
+              let testver = "<%= confirmedDaysString %>";
+
+              console.log(testver);
+            </script>
+
+          </div>
+          <span class="text-muted">$12</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
             <h6 class="my-0">Second product</h6>
             <small class="text-muted">Brief description</small>
           </div>
@@ -214,9 +230,11 @@
     </ul>
   </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
-        <script src="form-validation.js"></script></body>
+        <script src="form-validation.js"></script> -->
+
 
 
 <%- include("footer") -%>

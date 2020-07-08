@@ -16,6 +16,7 @@ const mediumSuite = 75;
 const smallSuite = 60;
 var chosenSuite = 'grand';
 var chosenDays = [];
+var confirmedDays = [];
 
 
 
@@ -100,19 +101,6 @@ app.post("/pricing", function(req, res){
 });
 
 
-
-
-
-
-app.get("/checkout", function(req, res){
-
-  res.render("checkout");
-});
-app.post("/checkout", function(req, res){
-
-});
-
-
 app.get("/reservationPage", function(req, res){
   fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) =>
   {
@@ -125,11 +113,12 @@ app.get("/reservationPage", function(req, res){
   res.render("reservationPage", {chosenSuite: chosenSuite, chosenDays: chosenDays});
 });
 app.post("/reservationPage", function(req, res){
-  console.log("reservationPage Post:");
 
-   daysString = req.body.daysChosen;
-   var chosenDays = daysString.split(",");
-   console.log(chosenDays);
+   var daysString = req.body.daysChosen;
+   confirmedDays = daysString.split(",");
+
+
+
   // const testtext = '{"grand": ["2020-06-15", "2021-07-25"]}'
   //
   // fs.writeFile(__dirname + "/public/data/fullDays.txt", testtext, (err) => {
@@ -138,6 +127,33 @@ app.post("/reservationPage", function(req, res){
   // });
 
   res.redirect("/checkout")
+});
+
+
+app.get("/checkout", function(req, res){
+  // console.log(confirmedDays);
+  var confirmedDaysString = "";
+  for(let i = 0; i < confirmedDays.length; i++)
+  {
+    confirmedDaysString = confirmedDaysString + "<li>" + confirmedDays[i] + "</li>";
+    // if(i < confirmedDays.length - 1)
+    // {
+    //   confirmedDaysString = confirmedDaysString + ",";
+    // }
+  }
+
+  console.log(confirmedDaysString);
+  console.log(typeof confirmedDaysString);
+  //numberOfDays = confirmedDays.length;
+
+  res.render("checkout", {confirmedDaysString: confirmedDays.toString()});
+  /*umberOfDays = confirmedDays.length;
+  res.render("checkout", {confirmedDays: confirmedDays, numberOfDays: numberOfDays});*/
+});
+app.post("/checkout", function(req, res){
+  // WRITE THE CHOSEN DAYS INTO THE JSON FILE ONLY HERE!
+  // chosenDays.push(confirmedDays)
+
 });
 
 
