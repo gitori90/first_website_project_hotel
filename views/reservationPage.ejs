@@ -19,19 +19,19 @@
     <hr class="hr-dark">
     <br>
   <ul class="card-review">
-    <li class="chosenSuite"><%= chosenSuite %></li>
-    <li style="float: left;">
-      image of selected room
-      <!-- <img src="" alt=""> -->
-    </li>
-    <li style="float: left;">
+    <h2 class="card-header"><li class="chosenSuite"><%=chosenSuite%></li></h2>
+    <li class="" id="liImage" style="float: left;"></li>
+    <li class="review-suite">
       <ul>
         <li>room info</li>
         <li>more room info</li>
+        <li>even more room info</li>
+        <li>filling text</li>
       </ul>
     </li>
 
   </ul>
+  <hr class="hr-dark">
   <h2>available days for this room:</h2>
   <%- include("calendar") -%>
   </div>
@@ -44,18 +44,40 @@
       </p>
     </div>
 </div>
+<div class="" style="text-align: center; padding: 3rem 0;">
+  <h5>copyrights etc...</h5>
+</div>
 
 </div>
 
-<script type="text/javascript">
 
-  var chosenDays = <%= chosenDays %>;
-  for (let i = 0; i < chosenDays.length; i++)
+<script type="text/javascript">
+  // this part is relevant when loading rooms data.
+  // var chosenDays = <%= chosenDays %>;
+  // for (let i = 0; i < chosenDays.length; i++)
+  // {
+  //   $("#" + chosenDays[i]).addClass("day-full");
+  // }
+
+  let imageLink = "";
+  let textSuite = $(".chosenSuite").text();
+
+  if (textSuite === "Grand")
   {
-    $("#" + chosenDays[i]).addClass("day-full");
+    imageLink = "<img src='images/beach-hotel-room4.jpg' id='chosenImage' alt='...'>";
+  }
+  else if (textSuite === "Medium")
+  {
+    imageLink = "<img src='images/beach-hotel-room2.jpg' id='chosenImage' alt='...'>";
+  }
+  else if (textSuite === "Small")
+  {
+    imageLink = "<img src='images/beach-hotel-room1.jpg' id='chosenImage' alt='...'>";
   }
 
-</script>
+  $(".chosenSuite").prepend("Suite Type: ");
 
+  $("#liImage").append(imageLink);
+</script>
 
 <%- include("footer") -%>

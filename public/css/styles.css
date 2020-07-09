@@ -8,10 +8,14 @@ hr{
 .hr-dark{
   border-bottom: dotted 1rem #0a97b0;
   border-top: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 .hr-light{
   border-bottom: dotted 1rem #faeee7;
   border-top: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 
@@ -34,10 +38,11 @@ nav{
 /* MAIN - SECTIONS */
 .side-main{
   background-color: #faeee7;
-  border: solid 0.3rem #0a97b0;
+  border: solid 0.2rem #0a97b0;
   background-image: url("../images/pearls5.jpg");
 }
 .middle-main{
+  border: solid 0.2rem #0a97b0;
   padding: 0!important;
 }
 
@@ -67,20 +72,35 @@ nav{
 
 
 /* MESSAGES TEXT */
+
+.top-welcome{
+  background-color: #faeee7!important;
+}
+.simple-official-message{
+  /* background-color: #faeee7!important; */
+  font-family: 'Mukta', sans-serif;
+  font-weight: bolder;
+
+  padding: 6rem 7rem 4rem 7rem;
+
+  letter-spacing: 0.2rem;
+  word-spacing: 0.5rem;
+  color: #0a97b0;
+}
 .temping-message{
+  /* background-color: #faeee7!important; */
   font-family: 'Marck Script', cursive;
   font-size: 2.5rem!important;
   color: #faeee7;
   padding: 3rem 5rem;
 }
-.simple-official-message{
-  font-family: 'Mukta', sans-serif;
-  font-weight: bolder;
-  padding: 6rem 7rem 4rem 7rem;
+.small-side-message{
+  font-family: 'Marck Script', cursive;
+  font-size: 1.5rem;
 
-  letter-spacing: 0.2rem;
-  word-spacing: 0.5rem;
-  color: #faeee7;
+  letter-spacing: 0.5rem;
+  color: #0a97b0;
+  padding-bottom: 2rem;
 }
 
 #reserve-sub-msg{
@@ -117,8 +137,8 @@ nav{
 }
 
 .card{
-  margin-top: 5rem!important;
-  margin-bottom: 5rem!important;
+  /* bootstrap's flagged the bottom as important, so better have the same for top */
+  margin-top: 1.5rem!important;
 }
 
 .cards-col{
@@ -134,6 +154,10 @@ nav{
   border-bottom: 0;
 }
 
+/* checkout page */
+#confirmedInsertDays .checkoutDay{
+  padding: 1rem 0;
+}
 
 /* MEDIA QUERRIES */
 @media (max-width: 1000px){

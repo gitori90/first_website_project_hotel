@@ -142,11 +142,9 @@ app.get("/checkout", function(req, res){
     // }
   }
 
-  console.log(confirmedDaysString);
-  console.log(typeof confirmedDaysString);
   //numberOfDays = confirmedDays.length;
 
-  res.render("checkout", {confirmedDaysString: confirmedDays.toString()});
+  res.render("checkout", {confirmedDaysString: confirmedDays});
   /*umberOfDays = confirmedDays.length;
   res.render("checkout", {confirmedDays: confirmedDays, numberOfDays: numberOfDays});*/
 });

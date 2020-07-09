@@ -9,7 +9,7 @@
   background-color: #888888;
   text-align: center;
   font-size: 2rem;
-  border: solid 5px #f0daa4;
+  border: solid 5px #0a97b0;
   margin: auto;
   width: 100%;
   /* border-bottom-left-radius: 15%;
@@ -23,7 +23,8 @@
 .calender-top{
   width: 100%;
   margin: auto;
-  border: solid 5px #f0daa4;
+  border: solid 5px #0a97b0;
+  /* border: solid 5px #f0daa4; */
   border-bottom: 0;
   background-color: #f4f4f4;
 }
@@ -101,13 +102,30 @@
 }
 
 .card-review{
+  padding-left: 0;
   display: inline-block;
   list-style-type: none;
-  border: solid 2px black;
+  border: solid 5px #0a97b0;
+  background-color: white;
+  width: 100%;
 }
 .reservation-info-columns{
   padding-top: 2rem;
 }
 .reservation-top-message{
   text-align: center;
+}
+
+.review-suite{
+  float: left;
+}
+.card-header{
+  display: inline-flex;
+  background-color: #f4f4f4!important;
+  padding-left: 0.5rem!important;
+  width: 100%;
+  border: 0;
+}
+#chosenImage{
+  width: 20rem;
 }
