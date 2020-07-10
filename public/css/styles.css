@@ -8,8 +8,7 @@ hr{
 .hr-dark{
   border-bottom: dotted 1rem #0a97b0;
   border-top: 0;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin: 5rem auto;
 }
 .hr-light{
   border-bottom: dotted 1rem #faeee7;
@@ -37,7 +36,6 @@ nav{
 
 /* MAIN - SECTIONS */
 .side-main{
-
   background-color: #faeee7;
   border: solid 0.2rem #0a97b0;
   background-image: url("../images/pearls5.jpg");

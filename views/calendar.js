@@ -194,8 +194,6 @@ function buildMonth(monthNumber)
       {
         break;
       }
-
-
     }
   }
 
@@ -213,7 +211,16 @@ function buildMonth(monthNumber)
 
 function insertIDs()
 {
-  $(".datesInput").val(reservedDays);
+  if (reservedDays.length === 0)
+  {
+    alert("Choose Date(s) to proceed");
+    $("#datesForm").attr("method", "");
+  }
+  else
+  {
+    $(".datesInput").val(reservedDays);
+  }
+
 }
 
 // initiate the calendar upon page loading

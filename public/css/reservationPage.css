@@ -120,6 +120,10 @@
 .review-suite{
   float: left;
 }
+.h2-above-calendar{
+  text-align: center;
+  padding-bottom: 2rem;
+}
 .card-header{
   display: inline-flex;
   background-color: #f4f4f4!important;
