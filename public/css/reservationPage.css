@@ -114,6 +114,7 @@
 }
 .reservation-top-message{
   text-align: center;
+  padding-top: 3rem;
 }
 
 .review-suite{
@@ -124,8 +125,11 @@
   background-color: #f4f4f4!important;
   padding-left: 0.5rem!important;
   width: 100%;
-  border: 0;
+  border: 0!important;
 }
 #chosenImage{
   width: 20rem;
+}
+.side-main{
+  border: 0!important;
 }

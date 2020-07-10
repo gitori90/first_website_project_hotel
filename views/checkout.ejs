@@ -25,16 +25,7 @@
             <h6 class="my-0">Your Selected Dates:</h6>
             <!-- ADD THE DATES HERE -->
             <ul id="confirmedInsertDays"></ul>
-            <script type="text/javascript">
-              let datesString = "<%= confirmedDaysString %>";
 
-              let datesArray = datesString.split(",");
-
-              for (let i = 0; i < datesArray.length; i++)
-              {
-                $("#confirmedInsertDays").append("<li class='checkoutDay'>" + datesArray[i] + "</li>");
-              }
-            </script>
 
           </div>
           <span class="text-muted">$12</span>
@@ -234,10 +225,21 @@
   </footer>
 </div>
 
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
-        <script src="form-validation.js"></script> -->
+<script type="text/javascript">
+  let datesString = "<%= confirmedDaysString %>";
+  console.log(datesString);
+  let datesArray = datesString.split(",");
 
-
+  for (let i = 0; i < datesArray.length; i++)
+  {
+    let inputDate = datesArray[i];
+    let splitDate = inputDate.split("-");
+    let day = splitDate[2];
+    let month = splitDate[1];
+    let year = splitDate[0];
+    let concatDate = day + "/" + month + "/" + year;
+    $("#confirmedInsertDays").append("<li class='checkoutDay'>" + concatDate + "</li>");
+  }
+</script>
 
 <%- include("footer") -%>

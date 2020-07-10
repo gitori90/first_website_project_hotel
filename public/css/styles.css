@@ -1,5 +1,5 @@
 body{
-  background-color: #faeee7!important;
+  background-color: #f1e8df!important;
 }
 
 hr{
@@ -37,12 +37,15 @@ nav{
 
 /* MAIN - SECTIONS */
 .side-main{
+
   background-color: #faeee7;
   border: solid 0.2rem #0a97b0;
   background-image: url("../images/pearls5.jpg");
+  background-position: center;
 }
 .middle-main{
-  border: solid 0.2rem #0a97b0;
+  /* border: solid 0.2rem #0a97b0; */
+  border: 0;
   padding: 0!important;
 }
 
@@ -74,7 +77,7 @@ nav{
 /* MESSAGES TEXT */
 
 .top-welcome{
-  background-color: #faeee7!important;
+  background-color: #f1e8df!important;
 }
 .simple-official-message{
   /* background-color: #faeee7!important; */
@@ -139,10 +142,15 @@ nav{
 .card{
   /* bootstrap's flagged the bottom as important, so better have the same for top */
   margin-top: 1.5rem!important;
+  text-align: center;
 }
 
 .cards-col{
   text-align: center;
+}
+/* for the h2 in the card header: */
+.my-0{
+  margin: auto;
 }
 
 .card-body{
@@ -150,8 +158,9 @@ nav{
   border: solid 3px #0a97b0;
 }
 .card-header{
-  border: solid 3px #0a97b0;
-  border-bottom: 0;
+  border: solid 3px #0a97b0!important;
+  border-bottom: 0!important;
+
 }
 
 /* checkout page */

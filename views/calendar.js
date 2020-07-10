@@ -207,8 +207,14 @@ function buildMonth(monthNumber)
   $(".day-available").on("click",
   function(){
     $(this).toggleClass("day-chosen");
-    toggleReservedDay(this.id)
+    toggleReservedDay(this.id);
   });
 }
 
+function insertIDs()
+{
+  $(".datesInput").val(reservedDays);
+}
+
+// initiate the calendar upon page loading
 buildMonth(selectedMonth);
