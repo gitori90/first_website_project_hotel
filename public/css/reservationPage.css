@@ -109,6 +109,9 @@
   background-color: white;
   width: 100%;
 }
+.card-list{
+  float: left;
+}
 .reservation-info-columns{
   padding-top: 2rem;
 }

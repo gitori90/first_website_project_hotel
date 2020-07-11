@@ -1,5 +1,6 @@
 body{
   background-color: #f1e8df!important;
+  color: #30475e;
 }
 
 hr{
@@ -98,7 +99,7 @@ nav{
 .small-side-message{
   font-family: 'Marck Script', cursive;
   font-size: 1.5rem;
-
+  font-weight: bolder!important;
   letter-spacing: 0.5rem;
   color: #0a97b0;
   padding-bottom: 2rem;
@@ -136,6 +137,9 @@ nav{
   color:#faeee7;
   padding-top: 2rem;
 }
+.copyrights-reservations{
+  text-align: center; padding: 3rem 0;
+}
 
 .card{
   /* bootstrap's flagged the bottom as important, so better have the same for top */
@@ -158,8 +162,8 @@ nav{
 .card-header{
   border: solid 3px #0a97b0!important;
   border-bottom: 0!important;
-
 }
+
 
 /* checkout page */
 #confirmedInsertDays .checkoutDay{

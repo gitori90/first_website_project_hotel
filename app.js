@@ -17,7 +17,7 @@ const smallSuite = 60;
 var chosenSuite = 'grand';
 var chosenDays = [];
 var confirmedDays = [];
-
+var reservationDetails = {chosenSuite: "", confirmedDays: [], totalCost: ""};
 
 
 
@@ -101,7 +101,7 @@ app.post("/pricing", function(req, res){
   res.redirect("/reservationPage");
 });
 
-
+// this yet doesnt work cause there's no such file
 app.get("/reservationPage", function(req, res){
   fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) =>
   {
@@ -117,6 +117,10 @@ app.post("/reservationPage", function(req, res){
 
    var daysString = req.body.daysChosen;
    confirmedDays = daysString.split(",");
+
+   // reservationDetails = {chosenSuite: "", confirmedDays: []};
+   reservationDetails.confirmedDays = confirmedDays;
+   reservationDetails.chosenSuite = chosenSuite;
 
 
 
@@ -136,19 +140,31 @@ app.get("/checkout", function(req, res){
   var confirmedDaysString = "";
   for(let i = 0; i < confirmedDays.length; i++)
   {
-    confirmedDaysString = confirmedDaysString + "<li>" + confirmedDays[i] + "</li>";
-    // if(i < confirmedDays.length - 1)
-    // {
-    //   confirmedDaysString = confirmedDaysString + ",";
-    // }
+    confirmedDaysString = confirmedDaysString + "<li>" + reservationDetails.confirmedDays[i] + "</li>";
   }
 
-  //numberOfDays = confirmedDays.length;
+  if (reservationDetails.chosenSuite == "Grand")
+  {
+    totalCost = confirmedDays.length * grandSuite;
+    reservationDetails.totalCost = totalCost.toString();
+  }
+  else if (reservationDetails.chosenSuite == "Medium")
+  {
+    totalCost = confirmedDays.length * mediumSuite;
+    reservationDetails.totalCost = totalCost.toString();
+  }
+  else if (reservationDetails.chosenSuite == "Small")
+  {
+    totalCost = confirmedDays.length * smallSuite;
+    reservationDetails.totalCost = totalCost.toString();
+  }
 
-  res.render("checkout", {confirmedDaysString: confirmedDays});
-  /*umberOfDays = confirmedDays.length;
-  res.render("checkout", {confirmedDays: confirmedDays, numberOfDays: numberOfDays});*/
+  res.render("checkout",
+  {confirmedDaysString: reservationDetails.confirmedDays,
+  chosenSuite: reservationDetails.chosenSuite,
+  totalCost: reservationDetails.totalCost});
 });
+
 app.post("/checkout", function(req, res){
   // WRITE THE CHOSEN DAYS INTO THE JSON FILE ONLY HERE!
   // chosenDays.push(confirmedDays)
