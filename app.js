@@ -49,46 +49,19 @@ fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) => {
 
 app.get("/", function(req, res){
 
-  // var currentDay = date.getDate();
-  // var daysList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-  //
-  // let day = daysList[currentDay];
-
-  // if (currentDay === 6 || (currentDay === 0))
-  // {
-  //   day = "weekend";
-  //
-  // }
-  // else{
-  //   day = "weekday";
-  // }
-
-  // it renders the file list.ejs inside views folder!:
-  // res.render("list", {listTitle: day, newItems: items});
-
   res.render("index");
 });
 app.post("/", function(req, res){
 
-  // let item = req.body.newItem;
-  //
-  // if (req.body.list === "work"){
-  //   workItems.push(item);
-  //   res.redirect("/work");
-  // }
-  // else{
-  //
-  //   items.push(item);
-  //   res.redirect("/");
-  //
-  // }
-
-  // item = req.body.newItem;
-  // items.push(item);
-  // res.redirect("/");
 });
 
+app.get("/contact", function(req, res){
 
+  res.render("contact");
+});
+app.post("/contact", function(req, res){
+
+});
 
 
 app.get("/pricing", function(req, res){
@@ -138,10 +111,16 @@ app.post("/reservationPage", function(req, res){
 app.get("/checkout", function(req, res){
   // console.log(confirmedDays);
   var confirmedDaysString = "";
-  for(let i = 0; i < confirmedDays.length; i++)
+  // for(let i = 0; i < confirmedDays.length; i++)
+  // {
+  //   confirmedDaysString = confirmedDaysString + "<li>" + reservationDetails.confirmedDays[i] + "</li>";
+  // }
+  // THE NEXT SNIPPET IS INSTEAD OF THE FOR LOOP:
+  reservationDetails.confirmedDays.forEach(function(dayString)
   {
-    confirmedDaysString = confirmedDaysString + "<li>" + reservationDetails.confirmedDays[i] + "</li>";
-  }
+    confirmedDaysString = confirmedDaysString + "<li>" + dayString + "</li>";
+  });
+
 
   if (reservationDetails.chosenSuite == "Grand")
   {

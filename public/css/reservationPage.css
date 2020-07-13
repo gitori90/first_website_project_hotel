@@ -130,7 +130,7 @@
 .card-header{
   display: inline-flex;
   background-color: #f4f4f4!important;
-  padding-left: 0.5rem!important;
+  padding-left: 1rem!important;
   width: 100%;
   border: 0!important;
 }
