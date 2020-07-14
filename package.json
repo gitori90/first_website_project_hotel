@@ -1,9 +1,4 @@
 {
-  "dependencies": {
-    "express":"*",
-    "body-parser":"*",
-    "bcrypt": "^0.8.5"
- },
   "requires": true,
   "lockfileVersion": 1,
   "dependencies": {
@@ -273,7 +268,8 @@
       "resolved": "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz",
       "integrity": "sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc="
     },
-    "express": {
+    "dependencies": {
+      "express": {
       "version": "4.17.1",
       "resolved": "https://registry.npmjs.org/express/-/express-4.17.1.tgz",
       "integrity": "sha512-mHJ9O79RqluphRrcw2X/GTh3k9tVv8YcoyY4Kkh4WDMUYKRZUq0h1o0w2rrrxBqM7VoeUVqgb27xlEMXTnYt4g==",
@@ -321,7 +317,8 @@
           "integrity": "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g=="
         }
       }
-    },
+    }
+  },
     "extend": {
       "version": "3.0.2",
       "resolved": "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz",
