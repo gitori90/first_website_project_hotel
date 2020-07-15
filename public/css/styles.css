@@ -2,7 +2,13 @@ body{
   background-color: #f1e8df!important;
   color: #30475e;
 }
+nav{
+  position: fixed!important;
+  z-index: 1000;
+  top: 0!important;
 
+  width: 100%!important;
+}
 hr{
   width: 70%;
 }
