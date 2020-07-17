@@ -208,6 +208,11 @@ nav{
   font-size: 3rem;
 }
 
+.contact-form{
+  text-align: center;
+  margin: auto;
+}
+
 
 /* checkout page */
 #confirmedInsertDays .checkoutDay{
