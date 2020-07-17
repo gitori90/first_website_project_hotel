@@ -41,8 +41,11 @@ nav{
   font-family: 'Libre Baskerville', serif;
 }
 .navbar-brand{
-  font-size: 1.5rem;
+  font-size: 2.0rem!important;
   font-weight: bold;
+}
+.nav-link{
+  font-size: 1.5rem!important;
 }
 
 /* MAIN - SECTIONS */
@@ -181,6 +184,11 @@ nav{
 }
 
 /* MEDIA QUERRIES */
-@media (max-width: 1000px){
-
+@media screen and (max-width: 600px) {
+  .navbar-brand{
+    font-size: 2.5rem!important;
+  }
+  .nav-link{
+    font-size: 2.2rem!important;
+  }
 }
