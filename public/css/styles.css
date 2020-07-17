@@ -185,7 +185,7 @@ nav{
 }
 
 /* MEDIA QUERRIES */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 990px) {
   .navbar-brand{
     font-size: 3.5rem!important;
   }
