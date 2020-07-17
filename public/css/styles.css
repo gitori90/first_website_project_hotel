@@ -175,6 +175,7 @@ nav{
 .card-header{
   border: solid 3px #0a97b0!important;
   border-bottom: 0!important;
+  letter-spacing: 0.15rem!important;
 }
 
 
@@ -184,11 +185,34 @@ nav{
 }
 
 /* MEDIA QUERRIES */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .navbar-brand{
-    font-size: 2.5rem!important;
+    font-size: 3.5rem!important;
   }
   .nav-link{
+    font-size: 3rem!important;
+  }
+  .simple-official-message{
+    font-size: 4rem!important;
+  }
+  .small-side-message{
     font-size: 2.2rem!important;
+  }
+  .temping-message{
+    font-size: 3rem!important;
+  }
+
+  /* pricing page */
+  .my-0{
+    font-size: 3.5rem!important;
+  }
+  .mt-3{
+    font-size: 2rem!important;
+  }
+  .pricing-card-title{
+    font-size: 3.5rem!important;
+  }
+  .btn{
+    font-size: 3.5rem!important;
   }
 }

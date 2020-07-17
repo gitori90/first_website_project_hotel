@@ -140,3 +140,13 @@
 .side-main{
   border: 0!important;
 }
+
+@media screen and (max-width: 800px) {
+  .card-header{
+    font-size: 3.5rem!important;
+  }
+  .review-suite{
+    font-size: 2rem;
+  }
+
+}
