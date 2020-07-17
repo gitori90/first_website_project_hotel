@@ -118,6 +118,10 @@ nav{
   padding-bottom: 2rem;
 }
 
+.btn-outline-success{
+  font-size: 2rem!important;
+}
+
 #reserve-sub-msg{
   color: #0a97b0;
 }
@@ -191,6 +195,10 @@ nav{
   }
   .nav-link{
     font-size: 3rem!important;
+  }
+  .navbar-toggler-icon{
+    height: 4rem!important;
+    width: 4rem!important;
   }
   .simple-official-message{
     font-size: 4rem!important;
