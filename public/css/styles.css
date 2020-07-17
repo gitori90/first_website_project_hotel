@@ -248,7 +248,7 @@ nav{
   .pricing-card-title{
     font-size: 3.5rem!important;
   }
-  .btn-lg{
+  .btn-lg, .myButton{
     font-size: 3.5rem!important;
   }
 }
