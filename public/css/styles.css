@@ -19,13 +19,12 @@ hr{
 .hr-dark{
   border-bottom: dotted 1rem #0a97b0;
   border-top: 0;
-  margin: 5rem auto;
+  margin: 3rem auto;
 }
 .hr-light{
   border-bottom: dotted 1rem #faeee7;
   border-top: 0;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 3rem auto;
 }
 
 
@@ -96,7 +95,7 @@ nav{
   font-family: 'Mukta', sans-serif;
   font-weight: bolder;
 
-  padding: 10rem 7rem 4rem 7rem;
+  padding: 7rem;
 
   letter-spacing: 0.2rem;
   word-spacing: 0.5rem;
@@ -111,15 +110,24 @@ nav{
 }
 .small-side-message{
   font-family: 'Marck Script', cursive;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bolder!important;
   letter-spacing: 0.5rem;
   color: #0a97b0;
   padding-bottom: 2rem;
+  text-align: center;
+}
+
+.contact-text-box{
+  font-family: 'Mukta', sans-serif;
 }
 
 .btn-outline-success{
   font-size: 2rem!important;
+}
+.contact-submit{
+  width: 20%!important;
+  margin: auto;
 }
 
 #reserve-sub-msg{
@@ -163,6 +171,13 @@ nav{
   margin-top: 1.5rem!important;
   text-align: center;
 }
+.pricing-card{
+  border: solid 3px #0a97b0!important;
+}
+.list-unstyled{
+  font-size: 1.5rem;
+  /* letter-spacing: 0.1rem; */
+}
 
 .cards-col{
   text-align: center;
@@ -174,12 +189,23 @@ nav{
 
 .card-body{
   background-color: #faeee7;
-  border: solid 3px #0a97b0;
+  border-top: solid 3px #0a97b0;
 }
 .card-header{
-  border: solid 3px #0a97b0!important;
+  /* border: solid 3px #0a97b0!important; */
   border-bottom: 0!important;
   letter-spacing: 0.15rem!important;
+}
+.sun-top-icon{
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: auto;
+  text-align: center;
+}
+.fa-sun{
+  color: #0a97b0;
+  font-size: 3rem;
 }
 
 
@@ -202,9 +228,6 @@ nav{
   }
   .simple-official-message{
     font-size: 4rem!important;
-  }
-  .small-side-message{
-    font-size: 2.2rem!important;
   }
   .temping-message{
     font-size: 3rem!important;

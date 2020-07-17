@@ -1,14 +1,25 @@
 <%- include("header") -%>
-<div class="small-side-message" style="text-align: center;">
 
-
-<h1 class="simple-official-message">Contact Us</h1>
-
-<ul style="list-style-type: none;">
-  <li>location: xxxxx st xxxx</li>
-  <li>phone: 00000000</li>
-  <li>answering hours: xxx-xxx, xxx-xxx</li>
-</ul>
+<div class="small-side-message">
+  <br><br>
+  <h1 class="simple-official-message">Contact Us</h1>
+  <hr class="hr-dark">
+  <br><br>
+  <form action="">
+    <label for="fname">Name*:</label>
+    <br>
+    <input type="text" id="fname" class="contact-text-box" name="fname" value="">
+    <br><br><br>
+    <label for="email">Email address*:</label><br>
+    <input type="text" id="email" class="contact-text-box" name="email" value="">
+    <br><br><br>
+    <label for="contact-text-box">Message*:</label>
+    <br>
+    <textarea id="contact-textarea" class="contact-text-box" name="contact-textarea" rows="5" cols="60">
+  </textarea>
+    <br>
+    <button type="submit" class="btn btn-lg btn-block btn-outline-success contact-submit" name="contact-submit" value="">Submit</button>
+  </form>
 
 </div>
 <%- include("footer") -%>
