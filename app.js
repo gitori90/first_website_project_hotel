@@ -12,7 +12,6 @@ mongoose.connect('mongodb+srv://armage:GoldenSun!2@cluster0.8id6c.mongodb.net/ro
 
 //mongodb://localhost:27017/roomsDB
 
-
 const grandSuite = 95;
 const mediumSuite = 75;
 const smallSuite = 60;
