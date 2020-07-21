@@ -35,53 +35,70 @@ const roomsSchema = {
 const Room = mongoose.model("Room", roomsSchema);
 
 
-app.get("/", function(req, res) {
-
+app.get("/",
+function(req, res)
+{
   res.render("index");
 });
-app.post("/", function(req, res) {
+app.post("/",
+function(req, res)
+{
 
 });
 
-app.get("/contact", function(req, res) {
-
+app.get("/contact",
+function(req, res)
+{
   res.render("contact");
 });
-app.post("/contact", function(req, res) {
+app.post("/contact",
+function(req, res) {
 
 });
 
 
-app.get("/pricing", function(req, res) {
-
+app.get("/pricing",
+function(req, res)
+{
   res.render("pricing", {
     grandPrice: grandSuite,
     mediumPrice: mediumSuite,
     smallPrice: smallSuite
   });
 });
-app.post("/pricing", function(req, res) {
+app.post("/pricing",
+function(req, res)
+{
   chosenSuite = req.body.reserveButton;
 
   res.redirect("/reservationPage");
 });
 
 
-app.get("/reservationPage", function(req, res) {
+app.get("/reservationPage",
+function(req, res)
+{
   var chosenDays = [];
   Room.find({
       type: chosenSuite
     },
-    function(err, items) {
-      if (err) {
+    function(err, items)
+    {
+      if (err)
+      {
         console.log(err);
-      } else {
-        if (items.length === 0) {
+      }
+      else
+      {
+        if (items.length === 0)
+        {
           var newRoom = new Room({
             type: chosenSuite
           });
           newRoom.save();
-        } else {
+        }
+        else
+        {
           chosenDays = items[0].reservedDays;
         }
       }
@@ -91,8 +108,9 @@ app.get("/reservationPage", function(req, res) {
       });
     });
 });
-app.post("/reservationPage", function(req, res) {
-
+app.post("/reservationPage",
+function(req, res)
+{
   var daysString = req.body.daysChosen;
   confirmedDays = daysString.split(",");
 
@@ -104,21 +122,27 @@ app.post("/reservationPage", function(req, res) {
 });
 
 
-app.get("/checkout", function(req, res) {
-
+app.get("/checkout",
+function(req, res)
+{
   var confirmedDaysString = "";
 
   reservationDetails.confirmedDays.forEach(function(dayString) {
     confirmedDaysString = confirmedDaysString + "<li>" + dayString + "</li>";
   });
 
-  if (reservationDetails.chosenSuite == "Grand") {
+  if (reservationDetails.chosenSuite == "Grand")
+  {
     totalCost = confirmedDays.length * grandSuite;
     reservationDetails.totalCost = totalCost.toString();
-  } else if (reservationDetails.chosenSuite == "Medium") {
+  }
+  else if (reservationDetails.chosenSuite == "Medium")
+  {
     totalCost = confirmedDays.length * mediumSuite;
     reservationDetails.totalCost = totalCost.toString();
-  } else if (reservationDetails.chosenSuite == "Small") {
+  }
+  else if (reservationDetails.chosenSuite == "Small")
+  {
     totalCost = confirmedDays.length * smallSuite;
     reservationDetails.totalCost = totalCost.toString();
   }
@@ -151,16 +175,13 @@ function(req, res)
           if (reservationDetails.confirmedDays.includes(date))
           {
             errorMessage = "Requested day is already taken!"
-
-            //res.redirect("/errorPage");
-            //alert(errorMessage);
           }
         });
-        items[0].reservedDays = items[0].reservedDays.concat(reservationDetails.confirmedDays);
-        items[0].save();
       };
       if (errorMessage === "")
       {
+        items[0].reservedDays = items[0].reservedDays.concat(reservationDetails.confirmedDays);
+        items[0].save();
         res.redirect("/confirmation");
       }
       else
@@ -170,10 +191,14 @@ function(req, res)
     });
 });
 
-app.get("/confirmation", function(req, res) {
+app.get("/confirmation",
+function(req, res)
+{
   res.render("confirmation");
 });
-app.get("/errorPage", function(req, res) {
+app.get("/errorPage",
+function(req, res)
+{
   res.render("errorPage", {
     errorMessage: errorMessage
   });
