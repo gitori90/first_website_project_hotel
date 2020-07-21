@@ -52,7 +52,7 @@
   cursor: pointer;
 }
 
-.prevMonth, .nextMonth{
+.prevMonth, .nextMonth, .pastDate{
   opacity: 0.6;
 }
 

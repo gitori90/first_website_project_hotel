@@ -81,7 +81,38 @@ function assignArrowButtons()
   });
 }
 
+function markToday()
+{
+  function markBeforeToday(dayNumber, monthNumber, yearNumber)
+  {
+    for(let i = 1 ; i < dayNumber ; i++)
+    {
+      let dayStr = formatDateDayMonth(i);
+      let monthStr = formatDateDayMonth(monthNumber + 1);
+      let dateStr = idDateFormat(dayStr, monthStr, yearNumber);
+      $("#" + dateStr).addClass("pastDate");
+      $("#" + dateStr).removeClass("day-available");
+      $("#" + dateStr).off("click");
+    }
+  }
 
+  function todayID()
+  {
+    let tempDate = new Date();
+    let dayNumber = tempDate.getDate();
+    let monthNumber = tempDate.getMonth();
+    let yearNumber = tempDate.getFullYear();
+    markBeforeToday(dayNumber, monthNumber, yearNumber);
+
+    let dayStr = formatDateDayMonth(dayNumber);
+    let monthStr = formatDateDayMonth(monthNumber + 1);
+    let dateStr = idDateFormat(dayStr, monthStr, yearNumber);
+
+    return dateStr;
+  }
+  let dateStr = todayID();
+  $("#" + dateStr).addClass("todayDate");
+}
 
 function monthLastDay()
 {
@@ -207,6 +238,8 @@ function buildMonth(monthNumber)
     $(this).toggleClass("day-chosen");
     toggleReservedDay(this.id);
   });
+
+  markToday();
 }
 
 function insertIDs()

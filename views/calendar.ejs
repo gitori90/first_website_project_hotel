@@ -52,23 +52,6 @@
   }
   markTakenDays();
 
-  function todayID()
-  {
-    let tempDate = new Date();
-    let dayNumber = tempDate.getDate();
-    let monthNumber = tempDate.getMonth();
-    let yearNumber = tempDate.getFullYear();
-
-    let dayStr = formatDateDayMonth(dayNumber);
-    let monthStr = formatDateDayMonth(monthNumber + 1);
-    let date = idDateFormat(dayStr, monthStr, yearNumber);
-
-    return date;
-  }
-
-  let dateStr = todayID();
-  $("#" + dateStr).addClass("todayDate");
-
   let imageLink = "";
   let textSuite = $(".chosenSuite").text();
 
