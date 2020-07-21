@@ -159,11 +159,9 @@ nav{
 }
 
 .copyrights{
-  color:#faeee7;
+  text-align: center;
+  color:black;
   padding-top: 2rem;
-}
-.copyrights-reservations{
-  text-align: center; padding: 3rem 0;
 }
 
 .card{

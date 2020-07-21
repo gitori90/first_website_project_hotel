@@ -36,4 +36,51 @@
 
 <script type="text/javascript">
   <%- include("calendar.js") -%>
+  var chosenDays = "<%= chosenDays %>";
+
+  function markTakenDays()
+  {
+    var chosenDaysList = chosenDays.split(",");
+
+    chosenDaysList.forEach(day =>
+    {
+      $("#" + day).addClass("day-full");
+      $("#" + day).removeClass("day-available");
+      $("#" + day).off("click");
+      $("#" + day).text("Taken");
+    });
+  }
+  markTakenDays();
+
+  function todayID()
+  {
+    let tempDate = new Date();
+    let dayNumber = tempDate.getDate();
+    let monthNumber = tempDate.getMonth();
+    let yearNumber = tempDate.getFullYear();
+
+    let dayStr = formatDateDayMonth(dayNumber);
+    let monthStr = formatDateDayMonth(monthNumber + 1);
+    let date = idDateFormat(dayStr, monthStr, yearNumber);
+
+    return date;
+  }
+
+  let dateStr = todayID();
+  $("#" + dateStr).addClass("todayDate");
+
+  let imageLink = "";
+  let textSuite = $(".chosenSuite").text();
+
+  if (textSuite === "Grand") {
+    imageLink = "<img src='images/beach-hotel-room4.jpg' id='chosenImage' alt='...'>";
+  } else if (textSuite === "Medium") {
+    imageLink = "<img src='images/beach-hotel-room2.jpg' id='chosenImage' alt='...'>";
+  } else if (textSuite === "Small") {
+    imageLink = "<img src='images/beach-hotel-room1.jpg' id='chosenImage' alt='...'>";
+  }
+
+  $(".chosenSuite").prepend("Suite Type: ");
+
+  $("#liImage").append(imageLink);
 </script>

@@ -27,30 +27,4 @@
 <h2 class="h2-above-calendar simple-official-message">available days for this room</h2>
 <%- include("calendar") -%>
 
-
-
-<script type="text/javascript">
-  // this part is relevant when loading rooms data.
-  // var chosenDays = <%= chosenDays %>;
-  // for (let i = 0; i < chosenDays.length; i++)
-  // {
-  //   $("#" + chosenDays[i]).addClass("day-full");
-  // }
-
-  let imageLink = "";
-  let textSuite = $(".chosenSuite").text();
-
-  if (textSuite === "Grand") {
-    imageLink = "<img src='images/beach-hotel-room4.jpg' id='chosenImage' alt='...'>";
-  } else if (textSuite === "Medium") {
-    imageLink = "<img src='images/beach-hotel-room2.jpg' id='chosenImage' alt='...'>";
-  } else if (textSuite === "Small") {
-    imageLink = "<img src='images/beach-hotel-room1.jpg' id='chosenImage' alt='...'>";
-  }
-
-  $(".chosenSuite").prepend("Suite Type: ");
-
-  $("#liImage").append(imageLink);
-</script>
-
 <%- include("footer") -%>

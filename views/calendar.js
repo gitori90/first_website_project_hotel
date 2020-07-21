@@ -70,12 +70,14 @@ function assignArrowButtons()
       selectedMonth = today.getMonth();
     }
     buildMonth(selectedMonth);
+    markTakenDays();
   });
 
   $(".top-right-arrow").on("click", function(){
     $(".calendar-wrapper").html(originalCalendarHtml);
     selectedMonth++;
     buildMonth(selectedMonth);
+    markTakenDays();
   });
 }
 
@@ -98,8 +100,6 @@ function monthLastDay()
 
   return j - 1;
 }
-
-
 
 function buildFirstWeek()
 {

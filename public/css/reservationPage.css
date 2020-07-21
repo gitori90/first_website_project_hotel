@@ -97,8 +97,13 @@
   color: white;
 }
 .day-full{
+  color: #eaac9d;
+  font-style: italic;
   background-color: #30475e!important;
   cursor: not-allowed!important;
+}
+.todayDate{
+  border: solid 4px #eaac9d;
 }
 
 .card-review{

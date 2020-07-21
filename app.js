@@ -2,50 +2,28 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const fs = require('fs')
-// const fullDaysData = require(__dirname + "/public/data/fullDays.txt");
-// const date = require(__dirname + "/views/date.js");
+const mongoose = require('mongoose');
+mongoose.set('useUnifiedTopology', true);
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-
+mongoose.connect('mongodb://localhost:27017/roomsDB', {useNewUrlParser: true});
 
 
 const grandSuite = 95;
 const mediumSuite = 75;
 const smallSuite = 60;
 var chosenSuite = 'grand';
-var chosenDays = [];
 var confirmedDays = [];
 var reservationDetails = {chosenSuite: "", confirmedDays: [], totalCost: ""};
 
+const roomsSchema = {
+  type: String,
+  reservedDays: confirmedDays
+};
+const Room = mongoose.model("Room", roomsSchema);
 
-
-// WRITING JSON TO FILE, LOADING THAT FILE'S TEXT AND PARSING THE JSON BACK:
-// NOTE!!: THE OUTER QUOTES IN JSON ARE ALWAYS '' AND INNER QUOTES ARE ALWAYS ""
-/*
-const testtext = '{"grand": ["2020-06-15", "2021-07-25"]}'
-
-fs.writeFile(__dirname + "/public/data/fullDays.txt", testtext, (err) => {
-    // In case of a error throw err.
-    if (err) throw err;
-});
-
-fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) => {
-  var test1 = JSON.parse(data);
-  dates = test1.grand;
-  console.log(dates);
-  var day = new Date(dates[0]);
-  console.log(dates[0]);
-  console.log(day);
-});
-*/
-
-
-
-
-// var items = [];
-// var workItems = [];
 
 app.get("/", function(req, res){
 
@@ -74,17 +52,29 @@ app.post("/pricing", function(req, res){
   res.redirect("/reservationPage");
 });
 
-// this yet doesnt work cause there's no such file
+
 app.get("/reservationPage", function(req, res){
-  fs.readFile(__dirname + "/public/data/fullDays.txt", 'utf8', (err, data) =>
-  {
-    chosenDaysAllSuites = JSON.parse(data);
-    chosenDays = chosenDaysAllSuites.chosenSuite
-
-
+  var chosenDays = [];
+  Room.find({type: chosenSuite},
+    function(err, items)
+    {
+      if (err)
+      {
+        console.log(err);
+      }
+      else
+      {
+        if (items.length === 0){
+          var newRoom = new Room({type: chosenSuite});
+          newRoom.save();
+        }
+        else
+        {
+          chosenDays = items[0].reservedDays;
+        }
+      }
+    res.render("reservationPage", {chosenSuite: chosenSuite, chosenDays: chosenDays});
   });
-
-  res.render("reservationPage", {chosenSuite: chosenSuite, chosenDays: chosenDays});
 });
 app.post("/reservationPage", function(req, res){
 
@@ -95,32 +85,18 @@ app.post("/reservationPage", function(req, res){
    reservationDetails.confirmedDays = confirmedDays;
    reservationDetails.chosenSuite = chosenSuite;
 
-
-
-  // const testtext = '{"grand": ["2020-06-15", "2021-07-25"]}'
-  //
-  // fs.writeFile(__dirname + "/public/data/fullDays.txt", testtext, (err) => {
-  //     // In case of a error throw err.
-  //     if (err) throw err;
-  // });
-
-  res.redirect("/checkout")
+  res.redirect("/checkout");
 });
 
 
 app.get("/checkout", function(req, res){
-  // console.log(confirmedDays);
+
   var confirmedDaysString = "";
-  // for(let i = 0; i < confirmedDays.length; i++)
-  // {
-  //   confirmedDaysString = confirmedDaysString + "<li>" + reservationDetails.confirmedDays[i] + "</li>";
-  // }
-  // THE NEXT SNIPPET IS INSTEAD OF THE FOR LOOP:
+
   reservationDetails.confirmedDays.forEach(function(dayString)
   {
     confirmedDaysString = confirmedDaysString + "<li>" + dayString + "</li>";
   });
-
 
   if (reservationDetails.chosenSuite == "Grand")
   {
@@ -144,25 +120,33 @@ app.get("/checkout", function(req, res){
   totalCost: reservationDetails.totalCost});
 });
 
-app.post("/checkout", function(req, res){
-  // WRITE THE CHOSEN DAYS INTO THE JSON FILE ONLY HERE!
-  // chosenDays.push(confirmedDays)
+app.post("/checkout", function(req, res)
+{
+  Room.find({type: reservationDetails.chosenSuite}, function(err, items)
+  {
+    if (err)
+    {
+      console.log(err);
+    }
+    else
+    {
+      items[0].reservedDays = items[0].reservedDays.concat(reservationDetails.confirmedDays);
+      items[0].save();
+    }
+  });
 
+  // var updateDays = reservedDaysList.concat(reservationDetails.confirmedDays);
+  // console.log(updateDays);
+//   var updatedRoom = Room.findOneAndUpdate({type: reservationDetails.chosenSuite},
+//     {reservedDays: updateDays},
+//     {new: true}, function(err){
+//     if(err){
+//       console.log(err);
+//     }
+//   });
+// console.log(updatedRoom);
 });
 
-
-// app.get("/work", function(req, res){
-//   res.render("list", {listTitle: "work list", newItems: workItems});
-// })
-// app.post("/work", function(req, res){
-//   let item = req.body.newItems;
-//   workItems.push(item);
-//   res.redirect("/work");
-// });
-//
-// app.get("/about", function(req, res){
-//   res.render("about");
-// });
 
 app.listen(process.env.PORT || 3000, function(){
 });
