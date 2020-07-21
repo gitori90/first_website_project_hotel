@@ -36,22 +36,7 @@
 
 <script type="text/javascript">
   <%- include("calendar.js") -%>
-  var chosenDays = "<%= chosenDays %>";
-
-  function markTakenDays()
-  {
-    var chosenDaysList = chosenDays.split(",");
-
-    chosenDaysList.forEach(day =>
-    {
-      $("#" + day).addClass("day-full");
-      $("#" + day).removeClass("day-available");
-      $("#" + day).off("click");
-      $("#" + day).text("Taken");
-    });
-  }
-  markTakenDays();
-
+  var chosenDays = "<%=chosenDays%>";
   let imageLink = "";
   let textSuite = $(".chosenSuite").text();
 
@@ -64,6 +49,20 @@
   }
 
   $(".chosenSuite").prepend("Suite Type: ");
-
   $("#liImage").append(imageLink);
+
+  function markTakenDays()
+  {
+    var chosenDaysList = chosenDays.split(",");
+    if(chosenDaysList.length > 1)
+    {
+      chosenDaysList.forEach(day => {
+        $("#" + day).addClass("day-full");
+        $("#" + day).removeClass("day-available");
+        $("#" + day).off("click");
+        $("#" + day).text("Taken");
+      });
+    }
+  }
+  markTakenDays();
 </script>
