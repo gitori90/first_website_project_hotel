@@ -8,7 +8,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-mongoose.connect('mongodb://localhost:27017/roomsDB', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://armage:GoldenSun!2@cluster0.8id6c.mongodb.net/roomsDB', {useNewUrlParser: true});
+
+//mongodb://localhost:27017/roomsDB
 
 
 const grandSuite = 95;
@@ -134,19 +136,12 @@ app.post("/checkout", function(req, res)
       items[0].save();
     }
   });
-
-  // var updateDays = reservedDaysList.concat(reservationDetails.confirmedDays);
-  // console.log(updateDays);
-//   var updatedRoom = Room.findOneAndUpdate({type: reservationDetails.chosenSuite},
-//     {reservedDays: updateDays},
-//     {new: true}, function(err){
-//     if(err){
-//       console.log(err);
-//     }
-//   });
-// console.log(updatedRoom);
+  res.redirect("/confirmation");
 });
 
+app.get("/confirmation", function(req, res){
+  res.render("confirmation");
+});
 
 app.listen(process.env.PORT || 3000, function(){
 });

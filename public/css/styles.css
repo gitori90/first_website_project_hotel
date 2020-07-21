@@ -13,6 +13,11 @@ nav{
   top: 0!important;
   width: 100%!important;
 }
+.nav-regular{
+  color: #faeee7!important;
+  background-color: #0a97b0;
+  margin: 2px!important;
+}
 hr{
   width: 70%;
 }
