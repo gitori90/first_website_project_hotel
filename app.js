@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
-const fs = require('fs')
+const fs = require('fs');
 const mongoose = require('mongoose');
 mongoose.set('useUnifiedTopology', true);
 const app = express();
@@ -10,7 +10,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-mongoose.connect('mongodb+srv://armage:GoldenSun!2@cluster0.8id6c.mongodb.net/roomsDB', {
+mongoose.connect('mongodb+srv://armage:armage1990@cluster0.8id6c.mongodb.net/roomsDB', {
   useNewUrlParser: true
 });
 
@@ -34,49 +34,43 @@ const roomsSchema = {
 };
 const Room = mongoose.model("Room", roomsSchema);
 
-
-app.get("/",
-function(req, res)
+app.route("/")
+.get(function(req, res)
 {
   res.render("index");
-});
-app.post("/",
-function(req, res)
+})
+.post(function(req, res)
 {
 
 });
 
-app.get("/contact",
-function(req, res)
+app.route("/contact")
+.get(function(req, res)
 {
   res.render("contact");
-});
-app.post("/contact",
-function(req, res) {
+})
+.post(function(req, res) {
 
 });
 
-
-app.get("/pricing",
-function(req, res)
+app.route("/pricing")
+.get(function(req, res)
 {
   res.render("pricing", {
     grandPrice: grandSuite,
     mediumPrice: mediumSuite,
     smallPrice: smallSuite
   });
-});
-app.post("/pricing",
-function(req, res)
+})
+.post(function(req, res)
 {
   chosenSuite = req.body.reserveButton;
 
   res.redirect("/reservationPage");
 });
 
-
-app.get("/reservationPage",
-function(req, res)
+app.route("/reservationPage")
+.get(function(req, res)
 {
   var chosenDays = [];
   Room.find({
@@ -107,9 +101,8 @@ function(req, res)
         chosenDays: chosenDays
       });
     });
-});
-app.post("/reservationPage",
-function(req, res)
+})
+.post(function(req, res)
 {
   var daysString = req.body.daysChosen;
   confirmedDays = daysString.split(",");
@@ -122,8 +115,8 @@ function(req, res)
 });
 
 
-app.get("/checkout",
-function(req, res)
+app.route("/checkout")
+.get(function(req, res)
 {
   var confirmedDaysString = "";
 
@@ -152,11 +145,8 @@ function(req, res)
     chosenSuite: reservationDetails.chosenSuite,
     totalCost: reservationDetails.totalCost
   });
-});
-
-
-app.post("/checkout",
-function(req, res)
+})
+.post(function(req, res)
 {
   errorMessage = "";
   Room.find({type: reservationDetails.chosenSuite},
@@ -191,13 +181,14 @@ function(req, res)
     });
 });
 
-app.get("/confirmation",
-function(req, res)
+app.route("/confirmation")
+.get(function(req, res)
 {
   res.render("confirmation");
 });
-app.get("/errorPage",
-function(req, res)
+
+app.route("/errorPage")
+.get(function(req, res)
 {
   res.render("errorPage", {
     errorMessage: errorMessage
